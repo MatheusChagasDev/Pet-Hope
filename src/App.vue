@@ -1,19 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <sidebar v-if="$route.name != 'Login'"></sidebar>
+    <v-main>
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script>
+import Sidebar from "./components/Sidebar";
+//import PageTitle from "./components/UI/PageTitle";
+//import { mapGetters } from "vuex";
+
+export default {
+  name: "App",
+  components: {
+    Sidebar,
+    //PageTitle,
+    //Errors,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
